@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'sports#index'
   resources :sports, only: [:index, :show] do
-    resources :team, only: [:new, :create, :edit, :update]
+    resources :teams
   end
-  resources :team, only: [:index, :show]
+  # resources :teams, only: [:index, :show, :edit, :update]
 end

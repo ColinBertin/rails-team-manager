@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :set_sport, only: [:new, :create]
+
   def index
     @teams = Team.all
   end
@@ -12,7 +14,14 @@ class TeamsController < ApplicationController
   end
 
   def create
+    raise
     @team = Team.new(team_params)
+    @team.sport = @sport
+    # if @team.save
+    #   # redirect_to sport_path(@team.sport)
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -20,7 +29,11 @@ class TeamsController < ApplicationController
 
   private
 
+  def set_sport
+    @sport = Sport.find_by(id: params[:list_id])
+  end
+
   def team_params
-    params.require(:team).permit()
+    params.require(:team).permit(:name, :gender, :location)
   end
 end
