@@ -7,21 +7,23 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    authorize @team
   end
 
   def new
     @team = Team.new
+    authorize @team
   end
 
   def create
-    raise
     @team = Team.new(team_params)
     @team.sport = @sport
-    # if @team.save
-    #   # redirect_to sport_path(@team.sport)
-    # else
-    #   render :new
-    # end
+    authorize @team
+    if @team.save
+      redirect_to sport_path(@team.sport)
+    else
+      render :new
+    end
   end
 
   def edit

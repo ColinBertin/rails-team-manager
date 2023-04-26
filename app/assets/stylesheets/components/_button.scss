@@ -1,7 +1,12 @@
 .create_btn {
   padding: 10Px 20px;
   text-decoration: none;
+  color: white;
   border: 2px solid gray;
   border-radius: 10px;
-  background-color: aqua;
+  background-color: rgb(9, 119, 237);
+}
+
+.create_btn:hover {
+  color: rgb(209, 225, 239);
 }
