@@ -1,0 +1,9 @@
+<div class="container">
+  <div class = "card-no-hover p-4 m-4 border border-primary border-2">
+    <h1 class="mt-4 mb-4">Add a Sport</h1>
+    <%= simple_form_for(@sport) do |f| %>
+      <%= f.input :name, placeholder: 'Name of the sport' %>
+      <%= f.submit class: 'button mt-2 wt-100' %>
+    <% end %>
+  </div>
+</div>
