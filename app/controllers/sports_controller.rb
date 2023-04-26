@@ -1,5 +1,5 @@
 class SportsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :index, :show, :new, :create ] # :show if we want to
+  skip_before_action :authenticate_user!, only: [ :index, :show, :new, :create ] # :show if we want to
   def index
     @sports = Sport.all
   end
