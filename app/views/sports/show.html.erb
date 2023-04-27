@@ -6,5 +6,5 @@
       <li><%= link_to team.name, team_path(team) %></li>
     <% end %>
   </ul>
-  <%= link_to 'Add a new team', new_sport_team_path(@sport) %>
+  <%= link_to 'Add a new team', new_sport_team_path(@sport), class: "btn btn-primary" %>
 </div>
