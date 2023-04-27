@@ -19,9 +19,11 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.sport = @sport
+    @team.user = current_user
+    puts @team
     authorize @team
     if @team.save
-      redirect_to sport_team_path(@team.sport)
+      redirect_to sport_path(@team.sport)
     else
       render :new
     end
