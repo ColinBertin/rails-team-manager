@@ -2,6 +2,7 @@ class Team < ApplicationRecord
   # Associations
   has_many :players
   belongs_to :sport
+  belongs_to :user
 
   # Validations
   validates :name, presence: true, uniqueness: true

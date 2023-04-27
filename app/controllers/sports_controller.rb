@@ -16,7 +16,6 @@ class SportsController < ApplicationController
 
   def create
     @sport = Sport.new(sport_params)
-    @sport.user = current_user
     authorize @sport
     if @sport.save
       redirect_to sports_path

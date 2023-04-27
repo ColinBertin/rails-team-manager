@@ -1,5 +1,10 @@
 <div class="container">
   <h1><%= @sport.name %></h1>
-  <p>Find me in app/views/sports/show.html.erb</p>
+  <h2>Teams</h2>
+  <ul>
+    <% @sport.teams.each do |team| %>
+      <li><%= link_to team.name, sport_team_path(team) %></li>
+    <% end %>
+  </ul>
   <%= link_to 'Add a new team', new_sport_team_path(@sport) %>
 </div>
