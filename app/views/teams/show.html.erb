@@ -4,12 +4,23 @@
     <li><%= @team.gender %></li>
     <li><%= @team.location %></li>
   </ul>
-  <%= simple_form_for [ @team, @player ] do |f| %>
-    <%= f.input :first_name, placeholder: 'First Name' %>
-    <%= f.input :last_name, placeholder: 'Last Name' %>
-    <%= f.input :age, placeholder: 'Age' %>
-    <%= f.input :nationality, placeholder: 'Nationality' %>
-    <%= f.input :position, placeholder: 'Nationality' %>
-    <%= f.submit class: 'button mt-2 wt-100' %>
+  <% if user_signed_in? && @team.user === current_user %>
+    <%= simple_form_for [ @team, @player ] do |f| %>
+      <%= f.input :first_name, placeholder: 'First Name' %>
+      <%= f.input :last_name, placeholder: 'Last Name' %>
+      <%= f.input :age, placeholder: 'Age' %>
+      <%= f.input :nationality, placeholder: 'Nationality' %>
+      <%= f.input :position, placeholder: 'Nationality' %>
+      <%= f.submit class: 'button mt-2 wt-100' %>
+    <% end %>
+  <% end %>
+  <% @players.each do |player| %>
+    <ul class="mt-4 mb-4">
+      <li><%= player.first_name %></li>
+      <li><%= player.last_name %></li>
+      <li><%= player.age %></li>
+      <li><%= player.nationality %></li>
+      <li><%= player.position %></li>
+    </ul>
   <% end %>
 </div>

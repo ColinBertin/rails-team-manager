@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     authorize @team
     @player = Player.new
+    @players = @team.players
   end
 
   def new
