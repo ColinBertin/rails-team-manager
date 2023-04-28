@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
   # Associations
-  has_many :players
+  has_many :players, dependent: :destroy
   belongs_to :sport
   belongs_to :user
 
