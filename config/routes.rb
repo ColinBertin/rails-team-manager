@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :sports, only: [:index, :show, :new, :create] do
     resources :teams, only: [:new, :create]
   end
-  resources :teams, only: [:show]
+  resources :teams, only: [:show] do
+    resources :players, only: [:new, :create]
+  end
 end

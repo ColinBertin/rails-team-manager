@@ -8,5 +8,4 @@ class Player < ApplicationRecord
   validates :last_name, presence: true
   validates :age, presence: true
   validates :nationality, presence: true
-  validates :position
 end
