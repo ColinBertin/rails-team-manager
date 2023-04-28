@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first
+
+require 'faker'
+
 Team.destroy_all
 Sport.destroy_all
 User.destroy_all
@@ -24,10 +27,17 @@ User.create(
   admin: true
 )
 
+5.times do
+  User.create(email: Faker::Internet.email, password: "123456")
+end
+
+Sport.all.each do |sport|
+  10.times do
+    Team.create(name: Faker::Team.sport, gender: ["Male", "Female"].sample, location: Faker::Team.state, user: User.all.sample, sport: sport)
+  end
+end
+
 puts "Creating new Teams..."
-Team.create(name: "Lakers", gender: "male", location: "US", user: User.first, sport: bas)
-Team.create(name: "Manchester City", gender: "male", location: "UK", user: User.first, sport: foot)
-Team.create(name: "All Blacks", gender: "male", location: "NZ", user: User.first, sport: rug)
 
 puts "Just create #{Sport.count} sports!"
 puts "Just create #{Team.count} teams!"
