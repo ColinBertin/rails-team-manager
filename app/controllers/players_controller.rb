@@ -1,8 +1,5 @@
 class PlayersController < ApplicationController
-  def new
-    @player = Player.new
-    authorize @player
-  end
+  before_action :set_team, only: [:create]
 
   def create
     @player = Player.new(player_params)
@@ -12,7 +9,7 @@ class PlayersController < ApplicationController
     if @player.save
       redirect_to team_path(@team)
     else
-      render :new
+      render team_path(@team)
     end
   end
 
