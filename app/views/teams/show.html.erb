@@ -14,13 +14,15 @@
       <%= f.submit class: 'button mt-2 wt-100' %>
     <% end %>
   <% end %>
-  <% @players.each do |player| %>
-    <ul class="mt-4 mb-4">
-      <li><%= player.first_name %></li>
-      <li><%= player.last_name %></li>
-      <li><%= player.age %></li>
-      <li><%= player.nationality %></li>
-      <li><%= player.position %></li>
-    </ul>
-  <% end %>
+  <div calss="d-flex flex-col">
+    <% @players.each do |player| %>
+      <ul class="p-2 mt-4 mb-4">
+        <li><%= player.first_name %></li>
+        <li><%= player.last_name %></li>
+        <li><%= player.age %></li>
+        <li><%= player.nationality %></li>
+        <li><%= player.position %></li>
+      </ul>
+    <% end %>
+  </div>
 </div>

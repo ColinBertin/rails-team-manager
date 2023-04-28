@@ -8,6 +8,7 @@
 
 require 'faker'
 
+Player.destroy_all
 Team.destroy_all
 Sport.destroy_all
 User.destroy_all
@@ -20,12 +21,16 @@ bas.save!
 foot.save!
 rug.save!
 
+positions = ["Goal", "Defense", "Middle", "Forward"]
+
 puts "Creating new Users..."
-User.create(
+co = User.new(
   email: "colin@gmail.com",
   password: "123456",
   admin: true
 )
+
+co.save!
 
 5.times do
   User.create(email: Faker::Internet.email, password: "123456")
@@ -33,12 +38,23 @@ end
 
 Sport.all.each do |sport|
   10.times do
-    Team.create(name: Faker::Team.sport, gender: ["Male", "Female"].sample, location: Faker::Team.state, user: User.all.sample, sport: sport)
+    Team.create(name: Faker::Team.sport, gender: ["Male", "Female"].sample, location: Faker::Team.state,
+      user: User.all.sample, sport: sport
+    )
+  end
+end
+
+Team.all.each do |team|
+  10.times do
+    Player.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, age: rand(18..35),
+      nationality: Faker::Nation.flag, position: positions.sample, team: team, user: team.user
+    )
   end
 end
 
 puts "Creating new Teams..."
 
 puts "Just create #{Sport.count} sports!"
+puts "Just create #{User.count} users!"
 puts "Just create #{Team.count} teams!"
-puts "Just create #{User.count} User!"
+puts "Just create #{Player.count} players!"
