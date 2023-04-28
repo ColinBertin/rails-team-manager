@@ -20,7 +20,8 @@ rug.save!
 puts "Creating new Users..."
 User.create(
   email: "colin@gmail.com",
-  password: "123456"
+  password: "123456",
+  admin: true
 )
 
 puts "Creating new Teams..."
