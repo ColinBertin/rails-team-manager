@@ -1,10 +1,12 @@
 <div class="container">
-  <h1><%= @sport.name %></h1>
-  <h2>Teams</h2>
-  <ul>
-    <% @sport.teams.each do |team| %>
-      <li><%= link_to team.name, team_path(team) %></li>
-    <% end %>
-  </ul>
-  <%= link_to 'Add a new team', new_sport_team_path(@sport), class: "btn btn-primary" %>
+  <div class="mt-5">
+    <h1><%= @sport.name %></h1>
+    <h2>Teams</h2>
+    <ul>
+      <% @sport.teams.each do |team| %>
+        <li><%= link_to team.name, team_path(team) %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'Add a new team', new_sport_team_path(@sport), class: "btn btn-primary" %>
+  </div>
 </div>
