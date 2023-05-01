@@ -1,23 +1,25 @@
 <div class="container">
   <div class="mt-5">
     <h1><%= @team.name %></h1>
-    <ul>
-      <li><%= @team.gender %></li>
-      <li><%= @team.location %></li>
-    </ul>
-    <% if user_signed_in? && (@team.user === current_user || current_user.admin) %>
-      <%= simple_form_for [ @team, @player ] do |f| %>
-        <%= f.input :first_name, placeholder: 'First Name' %>
-        <%= f.input :last_name, placeholder: 'Last Name' %>
-        <%= f.input :age, placeholder: 'Age' %>
-        <%= f.input :nationality, placeholder: 'Nationality' %>
-        <%= f.input :position, placeholder: 'Nationality' %>
-        <%= f.submit class: 'button mt-2 wt-100' %>
+    <div class="d-flex w-100 justify-content-around m-3">
+      <ul class="">
+        <li><%= @team.gender %></li>
+        <li><%= @team.location %></li>
+      </ul>
+      <% if user_signed_in? && (@team.user === current_user || current_user.admin) %>
+        <%= simple_form_for [ @team, @player ] do |f| %>
+          <%= f.input :first_name, placeholder: 'First Name' %>
+          <%= f.input :last_name, placeholder: 'Last Name' %>
+          <%= f.input :age, placeholder: 'Age' %>
+          <%= f.input :nationality, placeholder: 'Nationality' %>
+          <%= f.input :position, placeholder: 'Nationality' %>
+          <%= f.submit class: 'button mt-2 wt-100' %>
+        <% end %>
       <% end %>
-    <% end %>
-    <div calss="d-flex flex-col">
+    </div>
+    <div calss="d-flex">
       <% @players.each do |player| %>
-        <ul class="p-2 mt-4 mb-4">
+        <ul class="">
           <li><%= player.first_name %></li>
           <li><%= player.last_name %></li>
           <li><%= player.age %></li>
