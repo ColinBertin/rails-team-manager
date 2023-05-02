@@ -20,10 +20,6 @@ class SportPolicy < ApplicationPolicy
 
   private
 
-  def user_is_owner?
-    user == record.user
-  end
-
   def user_is_admin?
     user.admin?
   end
