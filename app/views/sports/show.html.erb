@@ -1,6 +1,16 @@
 <div class="container">
   <div class="mt-5">
-    <h1><%= @sport.name %></h1>
+    <div class="d-flex just">
+      <h1><%= @sport.name %></h1>
+      <% if (user_signed_in? && current_user.admin?) %>
+        <%= link_to sport_path(@sport),
+          class: "btn btn-danger align-self-center",
+          method: :delete,
+          data: { confirm: "This action will delete all the team and players attached to this sports and cannot be undone. Are your sure you want to continue?" } do %>
+          DELETE
+        <% end %>
+      <% end %>
+    </div>
     <h2>Teams</h2>
     <ul>
       <% @sport.teams.each do |team| %>

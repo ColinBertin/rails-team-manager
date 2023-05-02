@@ -4,17 +4,7 @@
     <ul>
       <% @sports.each do |sport| %>
         <% puts sport %>
-        <div class="d-flex">
-          <li><%= link_to sport.name, sport_path(sport) %></li>
-          <% if (user_signed_in? && current_user.admin?) %>
-            <%= link_to sport_path(sport),
-          class: "text-danger cards-delete-btn",
-          method: :delete,
-          data: { confirm: "This action will delete all the team and players attached to this sports and cannot be undone. Are your sure you want to continue?" } do %>
-              <i class="fas fa-times"></i>
-            <% end %>
-          <% end %>
-        </div>
+        <li><%= link_to sport.name, sport_path(sport) %></li>
       <% end %>
     </ul>
     <% if (user_signed_in? && current_user.admin?) %>
