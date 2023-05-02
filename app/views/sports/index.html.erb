@@ -3,9 +3,21 @@
     <h1>Teams Manager</h1>
     <ul>
       <% @sports.each do |sport| %>
-        <li><%= link_to sport.name, sport_path(sport) %></li>
+        <div class="d-flex">
+          <li><%= link_to sport.name, sport_path(sport) %></li>
+          <% if user_signed_in? %>
+            <%= link_to sport_path(sport),
+          class: "text-danger cards-delete-btn",
+          method: :delete,
+          data: { confirm: "This action will delete all the team and players attached to this sports and cannot be undone. Are your sure you want to continue?" } do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </ul>
-    <%= link_to "Add Sport", new_sport_path, class: "btn btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to "Add Sport", new_sport_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

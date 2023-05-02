@@ -11,7 +11,11 @@ class SportPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    user_is_admin?
+  end
+
+  def destroy?
+    user_is_admin?
   end
 
   private

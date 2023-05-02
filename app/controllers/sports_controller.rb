@@ -24,6 +24,13 @@ class SportsController < ApplicationController
     end
   end
 
+  def destroy
+    @sport = Sport.find(params[:id])
+    authorize @sport
+    @sport.destroy
+    redirect_to sports_path
+  end
+
   private
 
   def sport_params
