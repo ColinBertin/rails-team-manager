@@ -17,6 +17,8 @@
         <li><%= link_to team.name, team_path(team) %></li>
       <% end %>
     </ul>
-    <%= link_to 'Add a new team', new_sport_team_path(@sport), class: "btn btn-primary" %>
+    <% if (user_signed_in?) %>
+      <%= link_to 'Add a new team', new_sport_team_path(@sport), class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
