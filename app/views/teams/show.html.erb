@@ -1,7 +1,7 @@
 <div class="container">
   <div class="mt-5">
     <h1><%= @team.name %></h1>
-    <div class="d-flex w-100 justify-content-around m-3">
+    <div class="flex w-100 justify-content-around m-3">
       <ul class="">
         <li><%= @team.gender %></li>
         <li><%= @team.location %></li>
@@ -17,7 +17,7 @@
         <% end %>
       <% end %>
     </div>
-    <div calss="d-flex">
+    <div calss="flex border border-red-500">
       <% @players.each do |player| %>
         <ul class="">
           <li><%= player.first_name %></li>
