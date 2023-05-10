@@ -1,5 +1,8 @@
 <div class="container">
   <div class="mt-5">
+    <h1 class="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     <h1>Teams Manager</h1>
     <ul>
       <% @sports.each do |sport| %>
@@ -11,4 +14,7 @@
       <%= link_to "Add Sport", new_sport_path, class: "btn btn-primary" %>
     <% end %>
   </div>
+  <p class="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-black">
+    Hello
+  </p>
 </div>
